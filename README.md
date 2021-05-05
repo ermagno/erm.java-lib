@@ -2,7 +2,7 @@
 
 ErmDataLib
   main classes example:
-  
+<pre>  
 public class ExamplePropertyUtil extends PropertyUtils {
     public ExamplePropertyUtil() {
         DefaultName = "ExamplePropertyUtil";
@@ -53,4 +53,4 @@ public static void main(String[] args) {
     frame.setVisible(true);
    
 }
-
+</pre>
