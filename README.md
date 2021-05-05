@@ -1,7 +1,6 @@
 # erm.java-lib
 
-ErmDataLib
-  main classes example:
+main classes example:
 <pre>
 
 public class ExamplePropertyUtil extends PropertyUtils {
