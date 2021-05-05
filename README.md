@@ -2,7 +2,8 @@
 
 ErmDataLib
   main classes example:
-<pre>  
+<pre>
+
 public class ExamplePropertyUtil extends PropertyUtils {
     public ExamplePropertyUtil() {
         DefaultName = "ExamplePropertyUtil";
@@ -17,33 +18,32 @@ public class ExamplePropertyUtil extends PropertyUtils {
   
 public class DBExample extends DBTable {
 
-	public DBFieldString				desc 		    = new DBFieldString(this, "descrizione", true);
-	public DBFieldString				nome				= new DBFieldString(this, "nome", true);
-
-  /** Foreign Key pointing to DBDBExample2 (extends DBTable) */
-	public DBFieldFK<DBExample2>	id_example2	= new DBFieldFK<DBExample2>(this, DBExample2.class, "",    true);
-  /** Tipo implements EnumInteger */
-	public DBFieldEnum<Tipo>	tipo 			        = new DBFieldEnum<Tipo>(this, Tipo.class, "tipo", true, false);
-
-	public DBFieldInteger             num 				          = new DBFieldInteger(this, "num", true);
-	
-	public DBExample() {
-		super("Example", true /** primary key field auto management */ );
-		setDisplayFields(desc, id_example2, tipo, num);
-		useCache = true;
-	}
+    public DBFieldString				desc 		    = new DBFieldString(this, "descrizione", true);
+    public DBFieldString				nome				= new DBFieldString(this, "nome", true);
+    /** Foreign Key pointing to DBDBExample2 (extends DBTable) */
+    public DBFieldFK<DBExample2>	id_example2	= new DBFieldFK<DBExample2>(this, DBExample2.class, "",    true);
+    /** Tipo implements EnumInteger */
+    public DBFieldEnum<Tipo>	tipo 			        = new DBFieldEnum<Tipo>(this, Tipo.class, "tipo", true, false);
+    public DBFieldInteger             num 				          = new DBFieldInteger(this, "num", true);
+    
+    public DBExample() {
+       super("Example", true /** primary key field auto management */ );
+       setDisplayFields(desc, id_example2, tipo, num);
+       useCache = true;
+    }
+}
 
 public class ExampleDatabaseManager extends DatabaseManager {
-  public ExampleDatabaseManager() {
-		setDatabaseProperties();
-    initTable(DBExample.class);
-    initTable(DBExample2.class);
-  }
+    public ExampleDatabaseManager() {
+       setDatabaseProperties();
+       initTable(DBExample.class);
+       initTable(DBExample2.class);
+    }
 }
 
 public static void main(String[] args) {
-		PropertyUtils.initialize(ExamplePropertyUtil.class, null);
-		new ExampleDatabaseManager();
+    PropertyUtils.initialize(ExamplePropertyUtil.class, null);
+    new ExampleDatabaseManager();
 
     JFrame frame = new JFrame("Example");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
