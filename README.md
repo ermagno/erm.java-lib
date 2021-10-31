@@ -19,10 +19,11 @@ public class ExamplePropertyUtil extends PropertyUtils {
 public class DBExample extends DBTable {
 
     public DBFieldString				desc 		    = new DBFieldString(this, "descrizione", true);
-    public DBFieldString				nome				= new DBFieldString(this, "nome", true);
-    /** Foreign Key pointing to DBDBExample2 (extends DBTable) */
+    public DBFieldString				nome			= new DBFieldString(this, "nome", true);
+    // Foreign Key 
+    // point to another table, i.e. DBDBExample2
     public DBFieldFK<DBExample2>	id_example2	        = new DBFieldFK<DBExample2>(this, DBExample2.class, "",    true);
-    /** Tipo implements EnumInteger */
+    // Enum type stored to db as integer, Tipo implements EnumInteger 
     public DBFieldEnum<Tipo>	tipo 			        = new DBFieldEnum<Tipo>(this, Tipo.class, "tipo", true, false);
     public DBFieldInteger             num 				= new DBFieldInteger(this, "num", true);
     
