@@ -50,7 +50,7 @@ public static void main(String[] args) {
     //finally, use them
     JFrame frame = new JFrame("Example");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    ItUtilsFormStandardEdit frm = new ItUtilsFormStandardEdit(frame, false, new DBExample(), 1, true);
+    ESFormStandardEdit frm = new ESFormStandardEdit(frame, false, new DBExample(), 1, true);
     frame.getContentPane().add(frm, BorderLayout.CENTER);
     frame.pack();
     frame.setVisible(true);
