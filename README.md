@@ -5,6 +5,7 @@ main classes example:
 
 public class ExamplePropertyUtil extends PropertyUtils {
     public ExamplePropertyUtil() {
+        //this is the name of .properties file
         DefaultName = "ExamplePropertyUtil";
     }
     
@@ -20,10 +21,10 @@ public class DBExample extends DBTable {
     public DBFieldString				desc 		    = new DBFieldString(this, "descrizione", true);
     public DBFieldString				nome				= new DBFieldString(this, "nome", true);
     /** Foreign Key pointing to DBDBExample2 (extends DBTable) */
-    public DBFieldFK<DBExample2>	id_example2	= new DBFieldFK<DBExample2>(this, DBExample2.class, "",    true);
+    public DBFieldFK<DBExample2>	id_example2	        = new DBFieldFK<DBExample2>(this, DBExample2.class, "",    true);
     /** Tipo implements EnumInteger */
     public DBFieldEnum<Tipo>	tipo 			        = new DBFieldEnum<Tipo>(this, Tipo.class, "tipo", true, false);
-    public DBFieldInteger             num 				          = new DBFieldInteger(this, "num", true);
+    public DBFieldInteger             num 				= new DBFieldInteger(this, "num", true);
     
     public DBExample() {
        super("Example", true /** primary key field auto management */ );
@@ -41,9 +42,12 @@ public class ExampleDatabaseManager extends DatabaseManager {
 }
 
 public static void main(String[] args) {
+    //first initialize properties file
     PropertyUtils.initialize(ExamplePropertyUtil.class, null);
+    //second initialize database
     new ExampleDatabaseManager();
 
+    //finally, use them
     JFrame frame = new JFrame("Example");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     ItUtilsFormStandardEdit frm = new ItUtilsFormStandardEdit(frame, false, new DBExample(), 1, true);
